@@ -23,19 +23,16 @@ Shell (bash): command interpreter. You type commands, it runs them and returns o
 Users and root: root is the superuser. Use sudo to run commands as root. Normal users have limited privileges.
 
 Filesystem layout (what each folder means)
-/: root of filesystem.
+Folder	Description
+/	root of filesystem.
+/home	users’ personal folders.
+/etc	system and service configuration files (e.g., /etc/passwd, /etc/hosts).
+/var	variable data (logs in /var/log).
+/usr, /usr/bin	user programs and common executables.
+/bin, /sbin	essential binaries; /sbin often admin-only.
+/tmp	temporary files.
 
-/home: users’ personal folders.
-
-/etc: system and service configuration files (e.g., /etc/passwd, /etc/hosts).
-
-/var: variable data (logs in /var/log).
-
-/usr, /usr/bin: user programs and common executables.
-
-/bin, /sbin: essential binaries; /sbin often admin-only.
-
-/tmp: temporary files.
+Exporter vers Sheets
 
 Essential commands, outputs, and how to read them
 Command	Purpose	Example Output	Interpretation
@@ -66,11 +63,11 @@ Shell operators (practical use)
 Operator	Purpose	Example	Explanation
 >	write output to file (overwrite).	echo hello > file.txt	Overwrites file.txt with "hello".
 >>	append output to file.	echo world >> file.txt	Adds "world" to the end of file.txt.
-|	pipe: command1 output becomes command2 input.	ps aux | grep ssh	Filters the process list for processes with "ssh".
+`	`	pipe: command1 output becomes command2 input.	`ps aux
 &&	run next only if previous succeeded.	mkdir test && cd test	Creates test and then changes directory only if creation succeeded.
-||	run next only if previous failed.	command1 || echo "failed"	Runs command1; if it fails, prints "failed".
+`		`	run next only if previous failed.
 $(command)	substitution stores output to variable.	today=$(date +%F)	Sets the variable today to today's date (e.g., 2024-01-01).
-2>&1	redirect stderr to stdout.	command 2>&1 | less	Pipes both normal output and errors to less.
+2>&1	redirect stderr to stdout.	`command 2>&1	less`
 2>/dev/null	hide stderr.	find / -name secret 2>/dev/null	Hides the "Permission denied" errors.
 
 Exporter vers Sheets
